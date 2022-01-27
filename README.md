@@ -3,4 +3,4 @@
 
 ## Documentation
 - Linux
-  - [Japanese](#linux.md)
+  - [Japanese](doc/linux/linux.md)

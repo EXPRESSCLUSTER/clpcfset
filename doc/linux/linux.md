@@ -2,5 +2,5 @@
 - CLUSTERPRO X 4.3 から実装された clpcfset コマンドを用いてクラスタ構成情報を作成するために必要な情報を共有していきます。
 
 ## リソース
-- [リソース共通](resrouce.md)
+- [リソース共通](resource.md)
 - [exec リソース](exec.md)

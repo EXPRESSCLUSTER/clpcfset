@@ -74,7 +74,7 @@
   ```
 ### Mount 実行前の fsck アクション
 - パラメータのパス: parameters/fsck/timing
-- パラメータ
+- パラメータの値
   - 実行しない: 0
   - 必ず実行する: 1
   - 指定回数に達したら実行する: 2 (既定値)
@@ -85,14 +85,14 @@
 #### 回数
 - [指定回数に達したら実行する] を指定した場合に
 - パラメータのパス: parameters/fsck/interval
-- パラメータ: 0 - 999 (既定値: 10)
+- パラメータの値: 0 - 999 (既定値: 10)
 - 実行例
   ```sh
   clpcfset add rscparam disk disk1 parameters/fsck/interval 10
   ```
 ### Mount 失敗時の fsck アクション
 - パラメータのパス: parameters/mount/action
-- パラメータ: 実行する
+- パラメータの値: 実行する
   - オフ: 0 
   - オン: 1 (既定値)
 - 実行例
@@ -101,10 +101,34 @@
   ```
 ### reiserfs の再構築
 - パラメータのパス: parameters/fsck/fixopt
-- パラメータ: 実行する
+- パラメータの値: 実行する
   - オフ: 0 (既定値) 
   - オン: 1
 - 実行例
   ```sh
   clpcfset add rscparam disk diskoption1 parameters/fsck/fixopt 0
+  ```
+## xfs_repair
+### xfs_repair オプション
+- パラメータのパス: parameters/fsck/xfsoption
+- パラメータの値: xfs_repair コマンドのオプションを指定してください (既定値: 指定なし)
+- 実行例
+  ```sh
+  clpcfset add rscparam disk diskoption1 parameters/fsck/xfsoption -L
+  ```
+### xfs_repair タイムアウト
+- パラメータのパス: parameters/fsck/xfstimeout
+- パラメータの値: 1 - 9999 (既定値: 7200)
+- 実行例
+  ```sh
+  clpcfset add rscparam disk diskoption1 parameters/fsck/xfstimeout 7200
+  ```
+### Mount 失敗時の xfs_repair アクション
+- パラメータのパス: parameters/mount/xfsaction
+- パラメータの値: 実行する
+  - オフ: 0 (既定値) 
+  - オン: 1
+- 実行例
+  ```sh
+  clpcfset add rscparam disk disk1 parameters/mount/xfsaction 0
   ```

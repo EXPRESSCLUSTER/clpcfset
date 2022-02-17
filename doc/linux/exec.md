@@ -33,7 +33,7 @@
 - パラメータの値
   - オン: 1
   - オフ: 0 (既定値)
-- 実行例s
+- 実行例
   ```sh
   clpcfset add rscparam exec exec1 parameters/act/postrunothers 1
   ```

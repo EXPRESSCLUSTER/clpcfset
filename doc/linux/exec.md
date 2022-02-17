@@ -119,3 +119,12 @@
              |
              +-- stop.sh
   ```
+## 実行例
+### 全てのパラメータが既定値の場合
+- フェイルオーバグループ名: failover1
+- exec リソース名: exec1
+```sh
+clpcfset add rsc failover1 exec exec1
+clpcfset add rscparam exec exec1 parameters/act/path start.sh
+clpcfset add rscparam exec exec1 parameters/deact/path stop.sh
+```

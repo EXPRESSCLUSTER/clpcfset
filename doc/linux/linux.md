@@ -4,3 +4,4 @@
 ## リソース
 - [リソース共通](resource.md)
 - [exec リソース](exec.md)
+- [ディスクリソース](disk.md)

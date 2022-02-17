@@ -132,3 +132,13 @@
   ```sh
   clpcfset add rscparam disk disk1 parameters/mount/xfsaction 0
   ```
+## 実行例
+### ファイルシステムが ext4 かつ他のパラメータが既定値の場合
+- フェイルオーバグループ名: failover1
+- ディスクリソース名: disk1
+```sh
+clpcfset add rsc failover1 disk disk1
+clpcfset add rscparam disk disk1 parameters/fs ext4
+clpcfset add rscparam disk disk1 parameters/device /dev/sdb1
+clpcfset add rscparam disk disk1 parameters/mount/point /mnt/disk1
+```

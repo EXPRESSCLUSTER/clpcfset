@@ -16,8 +16,8 @@
 - パラメータの値: 1 - 999 (既定値: 180)
 - 実行例
   ```sh
-  clpcfset add rscparam disk disk1 parameters/mount/timeout 120
-   ```
+  clpcfset add rscparam disk disk1 parameters/mount/timeout 180
+  ```
 ### リトライ回数 
 - パラメータのパス: parameters/mount/retry
 - パラメータの値: 0 - 999 (既定値: 3)
@@ -106,22 +106,23 @@
   - オン: 1
 - 実行例
   ```sh
-  clpcfset add rscparam disk diskoption1 parameters/fsck/fixopt 0
+  clpcfset add rscparam disk disk1 parameters/fsck/fixopt 0
   ```
 ## xfs_repair
+- ファイルシステムに xfs を設定した場合に以下のパラメータを設定してください。
 ### xfs_repair オプション
 - パラメータのパス: parameters/fsck/xfsoption
 - パラメータの値: xfs_repair コマンドのオプションを指定してください (既定値: 指定なし)
 - 実行例
   ```sh
-  clpcfset add rscparam disk diskoption1 parameters/fsck/xfsoption -L
+  clpcfset add rscparam disk disk1 parameters/fsck/xfsoption -L
   ```
 ### xfs_repair タイムアウト
 - パラメータのパス: parameters/fsck/xfstimeout
 - パラメータの値: 1 - 9999 (既定値: 7200)
 - 実行例
   ```sh
-  clpcfset add rscparam disk diskoption1 parameters/fsck/xfstimeout 7200
+  clpcfset add rscparam disk diskn1 parameters/fsck/xfstimeout 7200
   ```
 ### Mount 失敗時の xfs_repair アクション
 - パラメータのパス: parameters/mount/xfsaction

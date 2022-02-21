@@ -24,3 +24,4 @@
 
 ### クラウド系モニタリソース
 - [AWS 仮想 IP モニタリソース](awsvipw.md)
+- [Azure プローブポートモニタリソース](azureppw.md)

@@ -28,6 +28,19 @@
   clpcfset add rscparam exec exec1 parameters/deact/path stop.sh
   ```
 ## パラメータ
+### 開始スクリプトタイムアウト
+- パラメータのパス: parameters/timeout/start
+- パラメータの値: 1 - 9999 (既定値: 1800)
+- 実行例
+  ```sh
+  clpcfset add rscparam exec exec1 parameters/timeout/start 1800
+  ```
+- 既定値から変更した場合、180 + timeout/start の値を act/timeout に設定してください。
+- 実行例 
+  ```sh
+  clpcfset add rscparam exec exec1 parameters/timeout/start 180
+  clpcfset add rscparam exec exec1 act/timeout 360
+  ``` 
 ### 開始スクリプト 待機系サーバで実行する
 - パラメータのパス: parameters/act/postrunothers
 - パラメータの値
@@ -37,6 +50,7 @@
   ```sh
   clpcfset add rscparam exec exec1 parameters/act/postrunothers 1
   ```
+ 
 ### 開始スクリプト (待機系)タイムアウト
 - パラメータのパス: parameters/timeout/startothers
 - パラメータの値: 1 - 9999
@@ -44,6 +58,19 @@
   ```sh
   clpcfset add rscparam exec exec1 parameters/timeout/startothers 30
   ```
+### 終了スクリプトタイムアウト
+- パラメータのパス: parameters/timeout/stop
+- パラメータの値: 1 - 9999 (既定値: 1800)
+- 実行例
+  ```sh
+  clpcfset add rscparam exec exec1 parameters/timeout/stop 1800
+  ```
+- 既定値から変更した場合、180 + timeout/sttop の値を deact/timeout に設定してください。
+- 実行例 
+  ```sh
+  clpcfset add rscparam exec exec1 parameters/timeout/stops 180
+  clpcfset add rscparam exec exec1 deact/timeout 360
+  ``` 
 
 ### 終了スクリプト 待機系サーバで実行する
 - パラメータのパス: parameters/deact/prerunothers

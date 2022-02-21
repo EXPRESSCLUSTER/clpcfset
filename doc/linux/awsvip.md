@@ -53,3 +53,21 @@
   clpcfset add rscparam awsvip awsvip1 parameters/awsclitimeout 30
   clpcfset add rscparam awsvip awsvip1 act/timeout 270
   ```
+
+## 実行例
+### 全てのパラメータが既定値の場合
+- フェイルオーバグループ名: failover1
+- exec リソース名: awsvip1
+- IP アドレス: 10.1.0.20
+- VPC ID: vpc-1234abcd
+- ENI ID
+  - server1: eni-xxxxxxxx
+  - server2: eni-yyyyyyyy
+```sh
+clpcfset add rsc failover1 awsvip awsvip1
+clpcfset add rscparam awsvip awsvip1 parameters/ip 10.1.0.20
+clpcfset add rscparam awsvip awsvip1 parameters/vpcid vpc-1234abcd
+clpcfset add rscparam awsvip awsvip1 parameters/eniid eni-xxxxxxxx
+clpcfset add rscparam awsvip awsvip1 server@server2/parameters/vpcid vpc-1234abcd
+clpcfset add rscparam awsvip awsvip1 server@server2/parameters/eniid eni-yyyyyyyy
+```

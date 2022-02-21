@@ -24,3 +24,13 @@
   ```sh
   clpcfset add rscparam azurepp azurepp1 parameters/probetimeout 30
   ```
+
+## 実行例
+### 全てのパラメータが既定値の場合
+- フェイルオーバグループ名: failover1
+- Azure プローブポートリソース名: azurepp1
+- プローブポート: 26001
+```sh
+clpcfset add rsc failover1 azurepp azurepp1
+clpcfset add rscparam azurepp azurepp1 parameters/probeport 26001
+```

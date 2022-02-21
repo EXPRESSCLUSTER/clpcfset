@@ -30,7 +30,16 @@
 - フェイルオーバグループ名: failover1
 - Azure プローブポートリソース名: azurepp1
 - プローブポート: 26001
+- Azure プローブポートリソースを監視するため、[Azure プローブポートリソースモニタリソース](azureppw.md)および [Azure ロードバランスモニタリソース](azurelbw.md)を追加してください。
 ```sh
 clpcfset add rsc failover1 azurepp azurepp1
 clpcfset add rscparam azurepp azurepp1 parameters/probeport 26001
+clpcfset add mon azureppw azureppw1
+clpcfset add monparam azureppw azureppw1 target azurepp1
+clpcfset add monparam azureppw azureppw1 relation/type rsc
+clpcfset add monparam azureppw azureppw1 relation/name azurepp1
+clpcfset add mon azurelbw azurelbw1
+clpcfset add monparam azurelbw azurelbw1 parameters/object azurepp1
+clpcfset add monparam azurelbw azurelbw1 relation/type cls
+clpcfset add monparam azurelbw azurelbw1 relation/name LocalServer
 ```

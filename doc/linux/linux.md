@@ -18,7 +18,7 @@
 - [カスタムモニタリソース](genw.md)
 
 ### Database Agent のライセンスが必要なモニタリソース
-- Oracle モニタリソース
+- [Oracle モニタリソース](oraclew.md)
 - MySQL モニタリソース
 - PostgreSQL モニタリソース
 

@@ -28,6 +28,7 @@
 
 ## 実行例
 ### ソフトウェア構築ガイドに記載の設定
+- [ソフトウェア構築ガイド](https://jpn.nec.com/clusterpro/clpx/guide.html?#anc-lin) に記載されているパラメータを、コマンドで設定する場合の実行例です。
 - モニタリソース名: awsazw1
 - アベイラビリティゾーン
   - server1: ap-northeast-1a

@@ -64,15 +64,15 @@
   - server1: eni-xxxxxxxx
   - server2: eni-yyyyyyyy
 - AWS 仮想 IP リソースを監視するために、[AWS 仮想 IP モニタリソース](awsvipw.md)も設定してください。
-```sh
-clpcfset add rsc failover1 awsvip awsvip1
-clpcfset add rscparam awsvip awsvip1 parameters/ip 10.1.0.20
-clpcfset add rscparam awsvip awsvip1 parameters/vpcid vpc-1234abcd
-clpcfset add rscparam awsvip awsvip1 parameters/eniid eni-xxxxxxxx
-clpcfset add rscparam awsvip awsvip1 server@server2/parameters/vpcid vpc-1234abcd
-clpcfset add rscparam awsvip awsvip1 server@server2/parameters/eniid eni-yyyyyyyy
-clpcfset add mon awsvipw awsvipw1
-clpcfset add monparam awsvipw awsvipw1 target awsvip1
-clpcfset add monparam awsvipw awsvipw1 relation/type rsc
-clpcfset add monparam awsvipw awsvipw1 relation/name awsvip1
-```
+  ```sh
+  clpcfset add rsc failover1 awsvip awsvip1
+  clpcfset add rscparam awsvip awsvip1 parameters/ip 10.1.0.20
+  clpcfset add rscparam awsvip awsvip1 parameters/vpcid vpc-1234abcd
+  clpcfset add rscparam awsvip awsvip1 parameters/eniid eni-xxxxxxxx
+  clpcfset add rscparam awsvip awsvip1 server@server2/parameters/vpcid vpc-1234abcd
+  clpcfset add rscparam awsvip awsvip1 server@server2/parameters/eniid eni-yyyyyyyy
+  clpcfset add mon awsvipw awsvipw1
+  clpcfset add monparam awsvipw awsvipw1 target awsvip1
+  clpcfset add monparam awsvipw awsvipw1 relation/type rsc
+  clpcfset add monparam awsvipw awsvipw1 relation/name awsvip1
+  ```

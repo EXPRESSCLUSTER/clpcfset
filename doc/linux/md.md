@@ -306,6 +306,7 @@
 ### ファイルシステムが ext4 かつ他のパラメータが既定値の場合
 - フェイルオーバグループ名: failover1
 - ディスクリソース名: md1
+- ミラーディスクモニタリソースおよびミラーディスクコネクトモニタリソースも併せて追加してください。
 ```sh
 clpcfset add rsc failover1 md md1
 clpcfset add rscparam md md1 parameters/netdev@0/priority 0
@@ -316,4 +317,12 @@ clpcfset add rscparam md md1 parameters/mount/point /mnt/md1
 clpcfset add rscparam md md1 parameters/diskdev/dppath /dev/mapper/md1-dp
 clpcfset add rscparam md md1 parameters/diskdev/cppath /dev/mapper/md1-cp
 clpcfset add rscparam md md1 parameters/fs ext4
+clpcfset add mon mdw mdw1
+clpcfset add monparam mdw mdw1 parameters/object md1
+clpcfset add monparam mdw mdw1 relation/type cls
+clpcfset add monparam mdw mdw1 relation/name LocalServer
+clpcfset add mon mdnw mdnw1
+clpcfset add monparam mdnw mdnw1 parameters/object md1
+clpcfset add monparam mdnw mdnw1 relation/type cls
+clpcfset add monparam mdnw mdnw1 relation/name LocalServers
 ```

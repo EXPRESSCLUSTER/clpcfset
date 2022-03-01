@@ -37,9 +37,9 @@
 - モニタリソース名: awsvipw1
 - 監視対象リソース: awsvip1
 - 回復対象: awsvip1
-```sh
-clpcfset add mon awsvipw awsvipw1
-clpcfset add monparam awsvipw awsvipw1 target awsvip1
-clpcfset add monparam awsvipw awsvipw1 relation/type rsc
-clpcfset add monparam awsvipw awsvipw1 relation/name awsvip1
-```
+  ```sh
+  clpcfset add mon awsvipw awsvipw1
+  clpcfset add monparam awsvipw awsvipw1 target awsvip1
+  clpcfset add monparam awsvipw awsvipw1 relation/type rsc
+  clpcfset add monparam awsvipw awsvipw1 relation/name awsvip1
+  ```

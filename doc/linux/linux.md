@@ -26,3 +26,4 @@
 - [AWS 仮想 IP モニタリソース](awsvipw.md)
 - [AWS AZ モニタリソース](awsazw.md)
 - [Azure プローブポートモニタリソース](azureppw.md)
+- [Azure ロードバランスモニタリソース](azurelbw.md)

@@ -19,7 +19,7 @@
 
 ### Database Agent のライセンスが必要なモニタリソース
 - [Oracle モニタリソース](oraclew.md)
-- MySQL モニタリソース
+- [MySQL モニタリソース](mysqlw.md)
 - PostgreSQL モニタリソース
 
 ### クラウド系モニタリソース

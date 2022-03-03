@@ -16,11 +16,16 @@
 ## モニタリソース
 ### 基本的なモニタリソース
 - [カスタムモニタリソース](genw.md)
+- [ユーザ空間モニタリソース](userw.md)
 
 ### Database Agent のライセンスが必要なモニタリソース
 - [Oracle モニタリソース](oraclew.md)
 - [MySQL モニタリソース](mysqlw.md)
 - [PostgreSQL モニタリソース](psqlw.md)
+
+### Internet Server Agent のライセンスが必要なモニタリソース
+- [HTTP モニタリソース](httpw.md)
+- [SMTP モニタリソース](smptw.md)
 
 ### クラウド系モニタリソース
 - [AWS 仮想 IP モニタリソース](awsvipw.md)

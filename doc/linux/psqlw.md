@@ -48,7 +48,7 @@
   ```
 
 ### パスワード
-- CLUSTERPRO X 4.3 以降は、[clpencrypt](https://docs.nec.co.jp/sites/default/files/minisite/static/7046aab7-c76f-436d-b513-53b9a20df485/clp_x43_linux/L43_RG_JP/L_RG_08.html#clpencrypt) を利用することで、暗号化したパスワードを得ることが可能です。
+- CLUSTERPRO X 4.3 以降、[clpencrypt](https://docs.nec.co.jp/sites/default/files/minisite/static/7046aab7-c76f-436d-b513-53b9a20df485/clp_x43_linux/L43_RG_JP/L_RG_08.html#clpencrypt) を利用することで、暗号化したパスワードを得ることが可能です。
 - 実行例
   ```sh
   clpcfset add monparam mysqlw mysqlw1 parameters/password 暗号化されたパスワード

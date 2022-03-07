@@ -15,8 +15,11 @@
 
 ## モニタリソース
 ### 基本的なモニタリソース
-- [カスタムモニタリソース](genw.md)
 - [ユーザ空間モニタリソース](userw.md)
+- [カスタムモニタリソース](genw.md)
+- [NIC Link Up/Down モニタリソース](miiw.md)
+- [プロセス名モニタリソース](psw.md)
+- [PID モニタリソース](pidw.md)
 
 ### Database Agent のライセンスが必要なモニタリソース
 - [Oracle モニタリソース](oraclew.md)

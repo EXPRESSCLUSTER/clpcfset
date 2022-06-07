@@ -1,7 +1,6 @@
 # HTTP モニタリソース
 - このページでは、HTTP モニタリソース固有のパラメータの設定方法について説明します。
 - HTTP モニタリソースのタイプ名は httpw です。
-- 以下に記載のないパラメータについては、[リファレンスガイド](https://docs.nec.co.jp/sites/default/files/minisite/static/86695069-1c24-46d5-a3bf-72e81db4e4a7/clp_x43_linux/L43_RG_JP/L_RG_08.html#parameters-list-clpcfset-command)をご確認ください。
 
 ## 監視 (固有)
 ### 接続先
@@ -64,3 +63,13 @@
   clpcfset add monparam httpw httpw1 parameters/password 暗号化されたパスワード
   clpcfset add monparam httpw httpw1 parameters/encrypwd 1
   ```
+## 実行例
+### 監視パラメータを既定値で設定する
+
+```sh
+clpcfset add mon httpw httpw1
+clpcfset add monparam httpw httpw1 target exec1
+clpcfset add monparam httpw httpw1 relation/target exec1
+clpcfset add monparam httpw httpw1 relation/type rsc
+clpcfset add monparam httpw httpw1 relation/name exec1
+```

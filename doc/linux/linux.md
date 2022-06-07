@@ -5,33 +5,34 @@
 - [リソース共通](resource.md)
 
 ### 基本的なリソース
-- [exec リソース](exec.md)
-- [ディスクリソース](disk.md)
-- [ミラーディスクリソース](md.md)
+- [exec リソース (exec)](exec.md)
+- [ディスクリソース (disk)](disk.md)
+- [ミラーディスクリソース (md)](md.md)
 
 ### クラウド系リソース
-- [AWS 仮想 IP リソース](awsvip.md)
-- [Azure プローブポートリソース](azurepp.md)
+- [AWS 仮想 IP リソース (awsvip)](awsvip.md)
+- [Azure プローブポートリソース (azurepp)](azurepp.md)
 
 ## モニタリソース
 ### 基本的なモニタリソース
-- [ユーザ空間モニタリソース](userw.md)
-- [カスタムモニタリソース](genw.md)
-- [NIC Link Up/Down モニタリソース](miiw.md)
-- [プロセス名モニタリソース](psw.md)
-- [PID モニタリソース](pidw.md)
+- [カスタムモニタリソース (genw)](genw.md)
+- [NIC Link Up/Down モニタリソース (miiw)](miiw.md)
+- [PID モニタリソース (pidw)](pidw.md)
+- [プロセス名モニタリソース (psw)](psw.md)
+- [ユーザ空間モニタリソース (userw)](userw.md)
 
 ### Database Agent のライセンスが必要なモニタリソース
-- [Oracle モニタリソース](oraclew.md)
-- [MySQL モニタリソース](mysqlw.md)
-- [PostgreSQL モニタリソース](psqlw.md)
+- [MySQL モニタリソース (mysqlw)](mysqlw.md)
+- [Oracle モニタリソース (oraclew)](oraclew.md)
+- [PostgreSQL モニタリソース (psqlw)](psqlw.md)
 
 ### Internet Server Agent のライセンスが必要なモニタリソース
-- [HTTP モニタリソース](httpw.md)
-- [SMTP モニタリソース](smptw.md)
+- [FTP モニタリソース (ftpw)](ftpw.md)
+- [HTTP モニタリソース (httpw)](httpw.md)
+- [SMTP モニタリソース (smtpw)](smptw.md)
 
 ### クラウド系モニタリソース
-- [AWS 仮想 IP モニタリソース](awsvipw.md)
-- [AWS AZ モニタリソース](awsazw.md)
-- [Azure プローブポートモニタリソース](azureppw.md)
-- [Azure ロードバランスモニタリソース](azurelbw.md)
+- [AWS 仮想 IP モニタリソース (awsvipw)](awsvipw.md)
+- [AWS AZ モニタリソース (awsazw)](awsazw.md)
+- [Azure プローブポートモニタリソース (azureppw)](azureppw.md)
+- [Azure ロードバランスモニタリソース (azurelbw)](azurelbw.md)

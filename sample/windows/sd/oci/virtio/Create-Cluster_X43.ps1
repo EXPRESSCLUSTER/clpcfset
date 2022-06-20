@@ -29,7 +29,7 @@ $PINGTARGET=""
 # Disk NP
 #  You can get GUID with following command
 #  clpdiskctrl get guid P:
-$NPDRIVE="D:\"
+$NPDRIVE="R:\"
 $NPGUID="a1f0d795-caa3-47a2-b911-598c7e38a2da"
 #-----------------------------------------------------
 # Group
@@ -42,10 +42,10 @@ $FAILOVER1="failover1"
 #  You can get GUID with following command
 #  clpdiskctrl get guid E:
 $SD1NAME="sd1"
-$SD1DRIVE="E:"
+$SD1DRIVE="S:"
 $SD1GUID="bc6d06d2-63f3-410a-aab2-8dc12b75add6"
 $SD2NAME="sd2"
-$SD2DRIVE="F:"
+$SD2DRIVE="T:"
 $SD2GUID="a02906de-d3d3-4b6e-9946-ad000cc1718d"
 #-----------------------------------------------------
 # Monitor

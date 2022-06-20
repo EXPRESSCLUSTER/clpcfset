@@ -53,7 +53,7 @@
 ### 構成情報の作成
 1. サンプルスクリプト (PowerShell) をクラスタサーバに保存してください。
    - Oracle Cloud Infrastructure
-     - Paravirtualized
+     - [Paravirtualized](https://github.com/EXPRESSCLUSTER/clpcfset/tree/main/sample/windows/sd/oci/virtio)
 1. サンプルスクリプト内のパラメータを適宜変更してください。
    - ドライブ文字があるドライブの GUID の取得方法
      - 以下のコマンドを実行してください。
@@ -81,4 +81,4 @@
    ```
 1. 構成情報反映後、全てのサーバの OS を再起動してください。
 1. OS 再起動後、クラスタが正常に動作していることを Cluster WebUI または clpstat コマンドで確認してください。
-1. サイレントインストールを
+1. サイレントインストールでインストールした場合、ディスクリソースに設定されているドライブ (E.g. S: ドライブ) に対して、chkdsk を実行してください。

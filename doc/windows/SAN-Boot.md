@@ -13,16 +13,16 @@
 |                           |
 |  For server1              |
 | +-----------------------+ |
-| | Boot                  | |
+| | System Volume         | |
 | +-----------------------+ |
-| | C: System Drive       | |
+| | C: OS                 | |
 | +-----------------------+ |
 |                           |
 |  For server2              |
 | +-----------------------+ |
-| | Boot                  | |
+| | System Volume         | |
 | +-----------------------+ |
-| | C: System Drive       | |
+| | C: OS                 | |
 | +-----------------------+ |
 |                           |
 |  Shared Volume            |
@@ -55,22 +55,40 @@
    - Oracle Cloud Infrastructure
      - [Paravirtualized](https://github.com/EXPRESSCLUSTER/clpcfset/tree/main/sample/windows/sd/oci/virtio)
 1. サンプルスクリプト内のパラメータを適宜変更してください。
-   - ドライブ文字があるドライブの GUID の取得方法
+   - $HBA
+     - フィルタリングを行いたいドライブが接続されている HBA の情報を設定してください。以下で取得可能です。
+       - 実行例
+         ```bat
+         clpdiskctrl get hba R:
+         ```
+       - 実行結果
+         ```
+         0,PCI\VEN_1AF4&DEV_1004&SUBSYS_0008108E&REV_00,20
+         ```
+   - $SYSTEMGUID1, $SYSTEMGUID2
+     - システムドライブをフィルタリングの除外対象に設定します。以下で取得可能です。systemvolum の列が True となっているドライブの GUID を設定してください。
+       - 実行例 
+         ```ps
+         PS C:\Windows\system32> get-wmiobject -class win32_volume |ft -Property name,deviceid,bootvolume,systemvolume |out-string -width 4096
+         ```
+      - 実行結果
+        ```ps
+         name                                              deviceid                                          bootvolume systemvolume
+         ----                                              --------                                          ---------- ------------
+         C:\                                               \\?\Volume{e5ed6e77-9bf5-4c2f-8e37-00cad39ab7c6}\       True        False
+         \\?\Volume{55edbb61-db75-49cc-9e3e-5c108aae6c04}\ \\?\Volume{55edbb61-db75-49cc-9e3e-5c108aae6c04}\      False         True
+         ```       
+   - $CGUID1, $CGUID2, $NPGUID, $SD1GUID, $SD2GUID
      - 以下のコマンドを実行してください。
-       ```bat
-       clpdiskctrl get guid C:
-       e5ed6e77-9bf5-4c2f-8e37-00cad39ab7c6
-       ```
-   - ドライブ文字がないドライブの GUID の取得方法     
-     - 以下のコマンドを実行し、systemvolume が True となっているドライブが
-       ```ps
-       PS C:\Windows\system32> get-wmiobject -class win32_volume |ft -Property name,deviceid,bootvolume,systemvolume |out-string -width 4096
-       
-       name                                              deviceid                                          bootvolume systemvolume
-       ----                                              --------                                          ---------- ------------
-       C:\                                               \\?\Volume{e5ed6e77-9bf5-4c2f-8e37-00cad39ab7c6}\       True        False
-       \\?\Volume{55edbb61-db75-49cc-9e3e-5c108aae6c04}\ \\?\Volume{55edbb61-db75-49cc-9e3e-5c108aae6c04}\      False         True
-       ```
+       - 実行例
+         ```bat
+         clpdiskctrl get guid R:
+         ```
+       - 実行結果
+         ```
+         a1f0d795-caa3-47a2-b911-598c7e38a2da
+         ```
+       - 共有ディスクの LUN が GPT でフォーマットされていることを前提としたスクリプトになっています。MBR でフォーマットした場合、NPGUID, SD1GUID, SD2GUID がそれぞれのサーバで異なります。
 1. 管理者権限で PowerShell を起動し、サンプルスクリプトを実行してください。
 1. 実行後、サンプルスクリプトと同ディレクトリ内に clp.conf ファイルが作成されていることを確認してください。
 

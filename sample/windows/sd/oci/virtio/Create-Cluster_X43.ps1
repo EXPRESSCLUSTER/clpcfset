@@ -18,10 +18,10 @@ $SERVER1LAN1="10.0.1.120"
 $SERVER2="server2"
 $SERVER2LAN1="10.0.1.150"
 $HBA="PCI\VEN_1AF4&amp;DEV_1004&amp;SUBSYS_0008108E&amp;REV_00"
-$BOOTDRIVE1="55edbb61-db75-49cc-9e3e-5c108aae6c04"
-$CDRIVE1="e5ed6e77-9bf5-4c2f-8e37-00cad39ab7c6"
-$BOOTDRIVE2="55edbb61-db75-49cc-9e3e-5c108aae6c04"
-$CDRIVE2="e5ed6e77-9bf5-4c2f-8e37-00cad39ab7c6"
+$SYSTEMGUID1="55edbb61-db75-49cc-9e3e-5c108aae6c04"
+$CGUID1="e5ed6e77-9bf5-4c2f-8e37-00cad39ab7c6"
+$SYSTEMGUID2="55edbb61-db75-49cc-9e3e-5c108aae6c04"
+$CGUID2="e5ed6e77-9bf5-4c2f-8e37-00cad39ab7c6"
 #-----------------------------------------------------
 # Network Partition (NP) Resource
 # Ping NP
@@ -74,7 +74,6 @@ clpcfset add srv $SERVER2 1
 
 #=====================================================
 # Add HBA filters
-# - ****** on the bottom of this file.
 #-----------------------------------------------------
 Write-Output "Add HBA filters"
 clpcfset add hba $SERVER1 0 0 $HBA 20
@@ -156,39 +155,40 @@ clpcfset add monparam userw $USERWNAME relation/name LocalServer
 #=====================================================
 
 #=====================================================
-# Add ***
-# - clpcfset doesn't support *** so that 
+# Add [Partition excluded from cluster management]
+# - clpcfset doesn't support the above parameter so 
+#   that you need to create a XML node as below.
 #-----------------------------------------------------
 Copy-Item clp.conf clp.conf.bak
 $clpconf = [XML](Get-Content clp.conf)
 #-----------------------------------------------------
-# Add *** for server1
+# Add [Partition excluded from cluster management] for server1
 #-----------------------------------------------------
 $ID=0
 $newVolElement = $clpconf.root.server[$ID].hba.AppendChild($clpconf.CreateElement("vol"))
 $newVolElement.SetAttribute("id", "0")
 $newVolGUID = $newVolElement.AppendChild($clpconf.CreateElement("volumeguid"))
-$newVolGUID.AppendChild($clpconf.CreateTextNode($BOOTDRIVE1))
+$newVolGUID.AppendChild($clpconf.CreateTextNode($SYSTEMGUID1))
 $newVolMout = $newVolElement.AppendChild($clpconf.CreateElement("volumemountpoint"))
 $newVolElement = $clpconf.root.server[$ID].hba.AppendChild($clpconf.CreateElement("vol"))
 $newVolElement.SetAttribute("id", "1")
 $newVolGUID = $newVolElement.AppendChild($clpconf.CreateElement("volumeguid"))
-$newVolGUID.AppendChild($clpconf.CreateTextNode($CDRIVE1))
+$newVolGUID.AppendChild($clpconf.CreateTextNode($CGUID1))
 $newVolMout = $newVolElement.AppendChild($clpconf.CreateElement("volumemountpoint"))
 $newVolMout.AppendChild($clpconf.CreateTextNode("C:\"))
 #-----------------------------------------------------
-# Add *** for server2
+# Add [Partition excluded from cluster management] for server2
 #-----------------------------------------------------
 $ID=1
 $newVolElement = $clpconf.root.server[$ID].hba.AppendChild($clpconf.CreateElement("vol"))
 $newVolElement.SetAttribute("id", "0")
 $newVolGUID = $newVolElement.AppendChild($clpconf.CreateElement("volumeguid"))
-$newVolGUID.AppendChild($clpconf.CreateTextNode($BOOTDRIVE2))
+$newVolGUID.AppendChild($clpconf.CreateTextNode($SYSTEMGUID2))
 $newVolMout = $newVolElement.AppendChild($clpconf.CreateElement("volumemountpoint"))
 $newVolElement = $clpconf.root.server[$ID].hba.AppendChild($clpconf.CreateElement("vol"))
 $newVolElement.SetAttribute("id", "1")
 $newVolGUID = $newVolElement.AppendChild($clpconf.CreateElement("volumeguid"))
-$newVolGUID.AppendChild($clpconf.CreateTextNode($CDRIVE2))
+$newVolGUID.AppendChild($clpconf.CreateTextNode($CGUID2))
 $newVolMout = $newVolElement.AppendChild($clpconf.CreateElement("volumemountpoint"))
 $newVolMout.AppendChild($clpconf.CreateTextNode("C:\"))
 #-----------------------------------------------------

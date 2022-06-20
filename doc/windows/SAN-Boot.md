@@ -71,7 +71,7 @@
      - システムドライブをフィルタリングの除外対象に設定します。以下で取得可能です。systemvolum の列が True となっているドライブの GUID を設定してください。
        - 実行例 
          ```ps
-         PS C:\Windows\system32> get-wmiobject -class win32_volume |ft -Property name,deviceid,bootvolume,systemvolume |out-string -width 4096
+         get-wmiobject -class win32_volume |ft -Property name,deviceid,bootvolume,systemvolume |out-string -width 4096
          ```
       - 実行結果
         ```ps

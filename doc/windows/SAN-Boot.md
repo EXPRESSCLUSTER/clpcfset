@@ -52,21 +52,27 @@
 1. インストール & 設定ガイドに従い、CLUSTERPRO をインストールしてください。
 1. インストール後、全てのサーバを再起動してください。
 
+### ライセンスファイルの登録
+1. サーバ再起動後、clplcnsc コマンドでライセンスを登録してください。
+
 ### 構成情報の作成
 1. サンプルスクリプト (PowerShell) をクラスタサーバに保存してください。
-   - Oracle Cloud Infrastructure
+   - Oracle Cloud Infrastructure (OCI)
      - [Paravirtualized](https://github.com/EXPRESSCLUSTER/clpcfset/tree/main/sample/windows/sd/oci/virtio)
 1. サンプルスクリプト内のパラメータを適宜変更してください。
-   - $HBA
+   - $HBAPORT, $DEVICEID, $INSTANCEID
      - フィルタリングを行いたいドライブが接続されている HBA の情報を設定してください。以下で取得可能です。
        - 実行例
          ```bat
          clpdiskctrl get hba R:
          ```
-       - 実行結果
+       - 実行結果 (OCI)
          ```
          0,PCI\VEN_1AF4&DEV_1004&SUBSYS_0008108E&REV_00,20
          ```
+         - 0: $HBAPORT
+         - PCI\VEN_1AF4&DEV_1004&SUBSYS_0008108E&REV_00: $DEVICEID
+         - 20: $INSTANCEID
    - $SYSTEMGUID1, $SYSTEMGUID2
      - システムドライブをフィルタリングの除外対象に設定します。以下で取得可能です。systemvolum の列が True となっているドライブの GUID を設定してください。
        - 実行例 
